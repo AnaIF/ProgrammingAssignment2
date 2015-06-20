@@ -45,6 +45,7 @@ cacheSolve <- function(x, ...) {
   
   cachedInverse <- x$getInverseMatrix()
   
+  #Return the cached invers matrix if exists
   if (!is.null(cachedInverse)){
     message('Getting matrix from cache')
     return (cachedInverse)
@@ -53,10 +54,11 @@ cacheSolve <- function(x, ...) {
   ## Return a matrix that is the inverse of 'x'
   message('Getting the inverse of the matrix')
   
+  #Calculating the inverse first
   inverse <- solve(x$getOriginalMatrix())
   
+  #Adding the inverse to the cache
   x$setInverseMatrix(inverse)
-  
   
 }
 
